@@ -7,5 +7,8 @@ More information can be found here: [About Advent of Code](https://adventofcode.
 ## Year 2021
 Inputs and solutions for my attempt at Advent of Code 2021 are in the [Year2021](https://github.com/legitdk/adventofcode/tree/main/Year2021) directory.
 
-Solutions uploaded so far: 1
-[Day1](https://github.com/legitdk/adventofcode/blob/main/Year2021/Solutions/solution_day1.py)
+|Day| Solution Link|
+|-- |--------------|
+|01 |[Day1](https://github.com/legitdk/adventofcode/blob/main/Year2021/Solutions/solution_day1.py)|
+
+
