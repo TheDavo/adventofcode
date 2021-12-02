@@ -10,5 +10,6 @@ Inputs and solutions for my attempt at Advent of Code 2021 are in the [Year2021]
 |Day| Solution Link|
 |-- |--------------|
 |01 |[Day1](https://github.com/legitdk/adventofcode/blob/main/Year2021/Solutions/solution_day1.py)|
+|02 |[Day2](https://github.com/legitdk/adventofcode/blob/main/Year2021/Solutions/solution_day2.py)|
 
 
