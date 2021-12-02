@@ -1,6 +1,6 @@
 ##### ADVENT OF CODE DAY 1 #####
 
-# Link to day one problem: https://adventofcode.com/2021/day/1
+# Link to problem: https://adventofcode.com/2021/day/1
 
 ##### ADVENT OF CODE DAY 1 #####
 
