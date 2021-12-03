@@ -9,10 +9,11 @@ import time
 from timeit import default_timer as timer
 
 dirname = os.path.dirname(__file__)
-input_path = os.path.join(dirname,'../Inputs/input_day1.txt')
+input_path = os.path.join(dirname, '../Inputs/input_day1.txt')
 
 with open(input_path) as input_file:
     nums = [int(i) for i in input_file]
+
 
 def solve_part_one() -> int:
     count = 0
@@ -22,13 +23,15 @@ def solve_part_one() -> int:
 
     return count
 
+
 def solve_part_two() -> int:
     count = 0
     for i in range(len(nums)-3):
         if sum(nums[i:i+3]) < sum(nums[i+1:i+1+3]):
             count += 1
-        
     return count
+
+
 start_time = timer()
 sol_1 = solve_part_one()
 sol_2 = solve_part_two()
