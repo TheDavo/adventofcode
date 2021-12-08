@@ -1,6 +1,6 @@
 ##### ADVENT OF CODE DAY 7 #####
 
-# Link to problem: https://adventofcode.com/2021/day/6
+# Link to problem: https://adventofcode.com/2021/day/7
 
 ##### ADVENT OF CODE DAY 7 #####
 
