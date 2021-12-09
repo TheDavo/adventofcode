@@ -88,7 +88,6 @@ def solve_part_two(sev_seg_notes) -> int:
 
             curr_out = curr_out * pow(10,(len(dig_out)- i - 1))
             result += curr_out
-        print(result)
     return result
         
 def find_commons(signal_one, known_signal) -> int:
