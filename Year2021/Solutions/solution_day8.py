@@ -1,17 +1,18 @@
-##### ADVENT OF CODE DAY 8 #####
+# ADVENT OF CODE DAY 8 #####
 
 # Link to problem: https://adventofcode.com/2021/day/8
 
-##### ADVENT OF CODE DAY 8 #####
+# ADVENT OF CODE DAY 8 #####
 
 import os
 from timeit import default_timer as timer
 
 dirname = os.path.dirname(__file__)
-input_path_problem = os.path.join(dirname,'../Inputs/input_day8.txt')
+input_path_problem = os.path.join(dirname, '../Inputs/input_day8.txt')
 input_path_test = os.path.join(dirname, '../TestInputs/test_input_day8.txt')
 
 test = False
+
 
 def get_sev_seg_notes(input_path) -> list:
     sev_seg = []
@@ -27,10 +28,11 @@ def solve_part_one(sev_seg_notes) -> int:
 
     for note in sev_seg_notes:
         for output_note in note[1]:
-            if len(output_note) in [2,3,4,7]:
+            if len(output_note) in [2, 3, 4, 7]:
                 num_unique += 1
 
     return num_unique
+
 
 def solve_part_two(sev_seg_notes) -> int:
     result = 0
@@ -38,7 +40,6 @@ def solve_part_two(sev_seg_notes) -> int:
         attempts = note[0]
         dig_out = note[1]
         print(dig_out)
-        curr_out_str = ''
         signals = {}
         # Get unique signals for 1, 4, 7, 8
 
@@ -52,7 +53,6 @@ def solve_part_two(sev_seg_notes) -> int:
                 signals[4] = attempt
             elif len_tempt == 7:
                 signals[8] = attempt
-        
 
         # Use facts and logic to compare uniques to output signals
 
@@ -60,25 +60,25 @@ def solve_part_two(sev_seg_notes) -> int:
             curr_out = 0
             len_dig = len(dig)
             if len_dig not in signals.values():
-                common_four = find_commons(dig,signals[4])
-                common_one = find_commons(dig,signals[1])
+                common_four = find_commons(dig, signals[4])
+                common_one = find_commons(dig, signals[1])
 
-            if len_dig == 2: # must be a '1'
+            if len_dig == 2:  # must be a '1'
                 curr_out += 1
-            elif len_dig == 4: # must be a '4'
+            elif len_dig == 4:  # must be a '4'
                 curr_out += 4
-            elif len_dig == 3: # must be a '7'
+            elif len_dig == 3:  # must be a '7'
                 curr_out += 7
-            elif len_dig == 7: # must be a '8'
+            elif len_dig == 7:  # must be a '8'
                 curr_out += 8
-            elif len_dig == 5: # can be '2', '3', '5' depending on  commons
+            elif len_dig == 5:  # can be '2', '3', '5' depending on  commons
                 if common_four == 2 and common_one == 1:
                     curr_out += 2
                 elif common_four == 3 and common_one == 2:
                     curr_out += 3
                 else:
                     curr_out += 5
-            elif len_dig == 6: # can be a '9', '6', or '0' depending on commons
+            elif len_dig == 6:  # can be a '9', '6', or '0' depending on commons
                 if common_four == 4 and common_one == 2:
                     curr_out += 9
                 elif common_four == 3 and common_one == 1:
@@ -86,10 +86,11 @@ def solve_part_two(sev_seg_notes) -> int:
                 else:
                     curr_out += 0
 
-            curr_out = curr_out * pow(10,(len(dig_out)- i - 1))
+            curr_out = curr_out * pow(10, (len(dig_out) - i - 1))
             result += curr_out
     return result
-        
+
+
 def find_commons(signal_one, known_signal) -> int:
     signal_one = [x for x in signal_one]
     known_signal = [x for x in known_signal]
@@ -101,14 +102,15 @@ def find_commons(signal_one, known_signal) -> int:
 
     return num_common
 
-# TESTING
+
 if test:
+    # TESTING
     notes = get_sev_seg_notes(input_path_test)
     start_time = timer()
     sol_1 = solve_part_one(notes)
     sol_2 = solve_part_two(notes)
 else:
-# REAL PROBLEM
+    # REAL PROBLEM
     notes = get_sev_seg_notes(input_path_problem)
     start_time = timer()
     sol_1 = solve_part_one(notes)

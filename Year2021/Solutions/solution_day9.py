@@ -1,17 +1,18 @@
-##### ADVENT OF CODE DAY 9 #####
+# ADVENT OF CODE DAY 9 #####
 
 # Link to problem: https://adventofcode.com/2021/day/9
 
-##### ADVENT OF CODE DAY 9 #####
+# ADVENT OF CODE DAY 9 #####
 
 import os
 from timeit import default_timer as timer
 
 dirname = os.path.dirname(__file__)
-input_path_problem = os.path.join(dirname,'../Inputs/input_day9.txt')
+input_path_problem = os.path.join(dirname, '../Inputs/input_day9.txt')
 input_path_test = os.path.join(dirname, '../TestInputs/test_input_day9.txt')
 
 test = False
+
 
 def get_input(input_path):
     topograph = []
@@ -26,8 +27,7 @@ def solve_part_one(topograph):
     total_risk = 0
 
     for i, row in enumerate(topograph):
-        can_left, can_right, can_up, can_down = False,False,False,False
-        
+        can_left, can_right, can_up, can_down = False, False, False, False
 
         if i == 0:
             can_up, can_down = False, True
@@ -39,7 +39,7 @@ def solve_part_one(topograph):
         # print(row)
 
         for j, item in enumerate(row):
-            high_left, high_right, high_up, high_down = False,False,False,False
+            high_left, high_right, high_up, high_down = False, False, False, False
             # print(item)
 
             if j == 0:
@@ -48,7 +48,6 @@ def solve_part_one(topograph):
                 can_left, can_right = True, False
             else:
                 can_left, can_right = True, True
-            
             if can_up and (topograph[i-1][j][0] > item[0]):
                 high_up = True
             if can_down and (topograph[i+1][j][0] > item[0]):
@@ -57,28 +56,27 @@ def solve_part_one(topograph):
                 high_right = True
             if can_left and (topograph[i][j-1][0] > item[0]):
                 high_left = True
-            
-            if [can_up,can_down,can_right,can_left] == [high_up,high_down,high_right,high_left]:
+
+            if [can_up, can_down, can_right, can_left] == [high_up, high_down, high_right, high_left]:
                 total_risk += item[0] + 1
 
-    return total_risk         
-         
+    return total_risk
+
 
 def solve_part_two(topograph):
-    
-    def search_basin(topograph,i,j,basin_size_input, compare_to):
+
+    def search_basin(topograph, i, j, basin_size_input, compare_to):
 
         basin_size = basin_size_input + 1
 
         # print(basin_size)
-        
-        if topograph[i][j][0] == 9 or topograph[i][j][1] == True or topograph[i][j][0] < compare_to:
+
+        if topograph[i][j][0] == 9 or topograph[i][j][1] is True or topograph[i][j][0] < compare_to:
             return basin_size - 1
 
-        
         topograph[i][j] = (topograph[i][j][0], True)
 
-        can_left, can_right, can_up, can_down = False,False,False,False
+        can_left, can_right, can_up, can_down = False, False, False, False
 
         if i == 0:
             can_up, can_down = False, True
@@ -95,21 +93,24 @@ def solve_part_two(topograph):
             can_left, can_right = True, True
 
         if can_left:
-            basin_size = search_basin(topograph, i, j-1, basin_size, topograph[i][j][0])
+            basin_size = search_basin(
+                topograph, i, j-1, basin_size, topograph[i][j][0])
         if can_right:
-            basin_size = search_basin(topograph, i, j+1, basin_size,topograph[i][j][0])
+            basin_size = search_basin(
+                topograph, i, j+1, basin_size, topograph[i][j][0])
         if can_up:
-            basin_size = search_basin(topograph,i-1, j, basin_size,topograph[i][j][0])
+            basin_size = search_basin(
+                topograph, i-1, j, basin_size, topograph[i][j][0])
         if can_down:
-            basin_size = search_basin(topograph,i+1, j, basin_size,topograph[i][j][0])
-        
+            basin_size = search_basin(
+                topograph, i+1, j, basin_size, topograph[i][j][0])
+
         return basin_size
 
-    top_basins = [0,0,0]
+    top_basins = [0, 0, 0]
 
     for i, row in enumerate(topograph):
-        can_left, can_right, can_up, can_down = False,False,False,False
-
+        can_left, can_right, can_up, can_down = False, False, False, False
 
         if i == 0:
             can_up, can_down = False, True
@@ -121,7 +122,7 @@ def solve_part_two(topograph):
         # print(row)
 
         for j, item in enumerate(row):
-            high_left, high_right, high_up, high_down = False,False,False,False
+            high_left, high_right, high_up, high_down = False, False, False, False
             # print(item)
 
             if j == 0:
@@ -130,7 +131,7 @@ def solve_part_two(topograph):
                 can_left, can_right = True, False
             else:
                 can_left, can_right = True, True
-            
+
             if can_up and (topograph[i-1][j][0] > item[0]):
                 high_up = True
             if can_down and (topograph[i+1][j][0] > item[0]):
@@ -139,14 +140,14 @@ def solve_part_two(topograph):
                 high_right = True
             if can_left and (topograph[i][j-1][0] > item[0]):
                 high_left = True
-            
+
             # Finds a valley, from here we can explore around until we cannot
-            if [can_up,can_down,can_right,can_left] == [high_up,high_down,high_right,high_left]:
+            if [can_up, can_down, can_right, can_left] == [high_up, high_down, high_right, high_left]:
                 # print(i,j)
                 # for row in topograph:
                 #     print(row)
                 # print('')
-                basin_size = search_basin(topograph,i,j,0, item[0])
+                basin_size = search_basin(topograph, i, j, 0, item[0])
                 # print('Basin size: {}'.format(basin_size))
                 # print(top_basins)
                 if basin_size >= top_basins[0]:
@@ -161,7 +162,7 @@ def solve_part_two(topograph):
                 # print(top_basins)
     product = 1
     for basin in top_basins:
-        product *= basin 
+        product *= basin
 
     print(top_basins)
     return product
@@ -174,7 +175,7 @@ if test:
     sol_1 = solve_part_one(topograph)
     sol_2 = solve_part_two(topograph)
 else:
-# REAL PROBLEM
+    # REAL PROBLEM
     topograph = get_input(input_path_problem)
     start_time = timer()
     sol_1 = solve_part_one(topograph)
