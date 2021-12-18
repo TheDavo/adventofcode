@@ -20,3 +20,4 @@ Inputs and solutions for my attempt at Advent of Code 2021 are in the [Year2021]
 |09 |[Day9](https://github.com/legitdk/adventofcode/blob/main/Year2021/Solutions/solution_day9.py)|
 |10 |[Day10](https://github.com/legitdk/adventofcode/blob/main/Year2021/Solutions/solution_day10.py)|
 |11 |[Day11](https://github.com/legitdk/adventofcode/blob/main/Year2021/Solutions/solution_day11.py)|
+|12 |[Day12](https://github.com/legitdk/adventofcode/blob/main/Year2021/Solutions/solution_day12.py)|
