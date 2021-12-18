@@ -57,7 +57,8 @@ def solve_part_one(topograph):
             if can_left and (topograph[i][j-1][0] > item[0]):
                 high_left = True
 
-            if [can_up, can_down, can_right, can_left] == [high_up, high_down, high_right, high_left]:
+            if [can_up, can_down, can_right, can_left] == \
+                    [high_up, high_down, high_right, high_left]:
                 total_risk += item[0] + 1
 
     return total_risk
@@ -71,7 +72,8 @@ def solve_part_two(topograph):
 
         # print(basin_size)
 
-        if topograph[i][j][0] == 9 or topograph[i][j][1] is True or topograph[i][j][0] < compare_to:
+        if topograph[i][j][0] == 9 or topograph[i][j][1] is True \
+                or topograph[i][j][0] < compare_to:
             return basin_size - 1
 
         topograph[i][j] = (topograph[i][j][0], True)
@@ -142,7 +144,8 @@ def solve_part_two(topograph):
                 high_left = True
 
             # Finds a valley, from here we can explore around until we cannot
-            if [can_up, can_down, can_right, can_left] == [high_up, high_down, high_right, high_left]:
+            if [can_up, can_down, can_right, can_left] == \
+                    [high_up, high_down, high_right, high_left]:
                 # print(i,j)
                 # for row in topograph:
                 #     print(row)
