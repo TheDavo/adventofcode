@@ -42,7 +42,7 @@ def solve_part_two(fold_along, paper):
         max_x = max(max_x, key[0])
         max_y = max(max_y, key[1])
 
-    print(max_x, max_y)
+    # print(max_x, max_y)
     printed_paper = ''
     for y in range(max_y+1):
         for x in range(max_x+1):
@@ -67,7 +67,7 @@ def fold_paper(fold_along, paper, once=False):
             # 1-> diff_y = cur_y - fold_line
             # 2-> new_y =  fold_line - diff_y
             for key in fold_keys:
-                print(key)
+                # print(key)
                 diff_y = key[1] - fold_line
                 new_y = fold_line - diff_y
                 paper[(key[0], new_y)] = '#'
