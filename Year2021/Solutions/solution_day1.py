@@ -5,7 +5,6 @@
 ##### ADVENT OF CODE DAY 1 #####
 
 import os
-import time
 from timeit import default_timer as timer
 
 dirname = os.path.dirname(__file__)

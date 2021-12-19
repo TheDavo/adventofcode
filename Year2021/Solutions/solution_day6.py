@@ -92,7 +92,7 @@ else:
     sol_1 = solve_part_one(input_path_problem)
     sol_2 = solve_part_two(input_path_problem)
 
-print('The solution to Day 1 Problem 1 is {}'.format(sol_1))
-print('The solution to Day 1 Problem 2 is {}'.format(sol_2))
+print('The solution to Day 1 Problem 6 is {}'.format(sol_1))
+print('The solution to Day 1 Problem 6 is {}'.format(sol_2))
 elapsed_time = timer() - start_time
 print('The total elapsed time was {:.2f} ms'.format((elapsed_time*1000)))

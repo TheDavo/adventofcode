@@ -11,7 +11,7 @@ dirname = os.path.dirname(__file__)
 input_path_problem = os.path.join(dirname, '../Inputs/input_dayxx.txt')
 input_path_test = os.path.join(dirname, '../TestInputs/test_input_dayxx.txt')
 
-test = False
+test = True
 
 
 def get_input(input_path):
