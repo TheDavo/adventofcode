@@ -105,7 +105,7 @@ pub fn solve_part_1() -> usize {
     let input = aorust::input_as_str(String::from("src/inputs/input2.txt"));
 
     input.lines().map(|line| {
-        let (elf_code, my_code) = line.split_once(" ").unwrap();
+        let (elf_code, my_code) = line.split_once(' ').unwrap();
         let elf_hand: Hand = Hand::new(elf_code);
         let my_hand: Hand = Hand::new(my_code);
         
@@ -119,7 +119,7 @@ pub fn solve_part_2() -> usize {
     let input = aorust::input_as_str(String::from("src/inputs/input2.txt"));
 
     input.lines().map(|line| {
-        let (elf_code, game_code) = line.split_once(" ").unwrap();
+        let (elf_code, game_code) = line.split_once(' ').unwrap();
         let elf_hand: Hand = Hand::new(elf_code);
         let game: GameResult = GameResult::get_game_by_code(game_code);
         let my_hand: Hand = Hand::get_hand_for_game_result(elf_hand, &game);
