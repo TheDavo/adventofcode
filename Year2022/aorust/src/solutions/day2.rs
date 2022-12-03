@@ -103,31 +103,26 @@ impl Hand {
 
 pub fn solve_part_1() -> usize {
     let input = aorust::input_as_str(String::from("src/inputs/input2.txt"));
-    let mut total_score : usize = 0;
 
-    input.lines().for_each(|line| {
+    input.lines().map(|line| {
         let (elf_code, my_code) = line.split_once(" ").unwrap();
         let elf_hand: Hand = Hand::new(elf_code);
         let my_hand: Hand = Hand::new(my_code);
-
+        
         let game_result: GameResult = GameResult::get_game_result(&elf_hand, &my_hand); 
-        total_score += my_hand.get_hand_value() + game_result.get_game_value();
-    });
+        my_hand.get_hand_value() + game_result.get_game_value()
+    }).sum()
     
-    total_score
 }
 
 pub fn solve_part_2() -> usize {
     let input = aorust::input_as_str(String::from("src/inputs/input2.txt"));
-    let mut total_score : usize = 0;
 
-    input.lines().for_each(|line| {
+    input.lines().map(|line| {
         let (elf_code, game_code) = line.split_once(" ").unwrap();
         let elf_hand: Hand = Hand::new(elf_code);
         let game: GameResult = GameResult::get_game_by_code(game_code);
         let my_hand: Hand = Hand::get_hand_for_game_result(elf_hand, &game);
-        total_score += my_hand.get_hand_value() + game.get_game_value();
-    });
-    
-    total_score
+        my_hand.get_hand_value() + game.get_game_value()
+    }).sum()    
 }
