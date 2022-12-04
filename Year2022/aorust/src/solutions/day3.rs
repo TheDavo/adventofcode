@@ -26,10 +26,9 @@ pub fn solve_part_2() -> usize {
 
         let possible_badges = hfirst.intersection(&hsecond);
         possible_badges.map(|poss_badge| -> usize {
-            if third.contains(*poss_badge) {
-                get_item_priority(*poss_badge)
-            } else {
-                0
+            match third.contains(*poss_badge) {
+                true => get_item_priority(*poss_badge),
+                false => 0,
             }
         }).sum::<usize>()
     }).sum::<usize>()
