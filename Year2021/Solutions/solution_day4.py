@@ -1,16 +1,15 @@
-##### ADVENT OF CODE DAY 4 #####
+# ADVENT OF CODE DAY 4 #####
 
 # Link to problem: https://adventofcode.com/2021/day/4
 
-##### ADVENT OF CODE DAY 4 #####
+# ADVENT OF CODE DAY 4 #####
 
 import os
-import time
 from timeit import default_timer as timer
 
 dirname = os.path.dirname(__file__)
 input_path = os.path.join(dirname, '../Inputs/input_day4.txt')
-#input_path = os.path.join(dirname, '../TestInputs/test_input_day4.txt')
+# input_path = os.path.join(dirname, '../TestInputs/test_input_day4.txt')
 
 # Parse the text file
 # First line is all the numbers which will be drawn, then a newline
@@ -80,7 +79,7 @@ def bingod(board) -> bool:
     num_true = -1
     for column in range(len(board)):
         for row in range(len(board)):
-            if board[row][column][1] == True:
+            if board[row][column][1]:
                 num_true += 1
         if num_true == 5:
             vertical_bingo = True
@@ -94,10 +93,11 @@ def get_score(board, current_draw) -> int:
     score = 0
     for row in board:
         for mark in row:
-            if mark[1] == False:
+            if not mark[1]:
                 score += mark[0]
     print('Score {} calculated by {} * {}'.format((score
-                                                   * current_draw), score, current_draw))
+                                                   * current_draw),
+                                                  score, current_draw))
     return score * current_draw
 
 

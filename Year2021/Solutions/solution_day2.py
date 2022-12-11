@@ -1,8 +1,8 @@
-##### ADVENT OF CODE DAY 2 #####
+# ADVENT OF CODE DAY 2 #####
 
 # Link to problem: https://adventofcode.com/2021/day/2
 
-##### ADVENT OF CODE DAY 2 #####
+# ADVENT OF CODE DAY 2 #####
 
 import os
 from timeit import default_timer as timer
