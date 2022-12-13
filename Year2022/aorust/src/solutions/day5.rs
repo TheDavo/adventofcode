@@ -42,7 +42,7 @@ pub fn solve_part_1() -> String {
     let filepath = "src/inputs/input5.txt";
     let input = aorust::input_as_str(String::from(filepath));
 
-    let (crates_str, procedure_str) = input.split_once("\n\n").unwrap();
+    let (crates_str, procedure_str) = input.split_once("\r\n\r\n").unwrap();
     let mut crates: Vec<Crates> = get_crates(crates_str); 
     let procedure = procedure_str.lines().map(Instruction::from);
 
@@ -60,7 +60,7 @@ pub fn solve_part_2() -> String {
     let filepath = "src/inputs/input5.txt";
     let input = aorust::input_as_str(String::from(filepath));
 
-    let (crates_str, procedure_str) = input.split_once("\n\n").unwrap();
+    let (crates_str, procedure_str) = input.split_once("\r\n\r\n").unwrap();
     let mut crates: Vec<Crates> = get_crates(crates_str); 
     let procedure = procedure_str.lines().map(Instruction::from);
 
