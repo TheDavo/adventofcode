@@ -1,15 +1,24 @@
-mod solutions;
+#![allow(unused)]
+
+use clap::Parser;
+use std::process::Command;
+
+#[derive(Parser)]
+struct Cli {
+    /// Day of Advent of Code to run
+    day: usize,
+}
+
 fn main() {
-    println!("Day 1 Pt 1: {}", solutions::day1::solve_part_1());
-    println!("Day 1 Pt 2: {}", solutions::day1::solve_part_2());
-    println!("Day 2 Pt 1: {}", solutions::day2::solve_part_1());
-    println!("Day 2 Pt 2: {}", solutions::day2::solve_part_2());
-    println!("Day 3 Pt 1: {}", solutions::day3::solve_part_1());
-    println!("Day 3 Pt 2: {}", solutions::day3::solve_part_2());
-    println!("Day 4 Pt 1: {}", solutions::day4::solve_part_1());
-    println!("Day 4 Pt 2: {}", solutions::day4::solve_part_2());
-    println!("Day 5 Pt 1: {}", solutions::day5::solve_part_1());
-    println!("Day 5 Pt 2: {}", solutions::day5::solve_part_2());
-    println!("Day 6 Pt 1: {}", solutions::day6::solve_part_1());
-    println!("Day 6 Pt 2: {}", solutions::day6::solve_part_2());
+    let args = Cli::parse();
+
+    let mut day_str = format!("day{}", args.day);
+    println!("{}", day_str);
+    let mut output = Command::new("cargo");
+    output
+        .arg("run")
+        .arg("--bin")
+        .arg(day_str)
+        .spawn()
+        .expect("failed to execute process");
 }
